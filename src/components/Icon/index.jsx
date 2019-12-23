@@ -30,9 +30,9 @@ export const AddIcon = props => {
   }
 
   return (
-    <svg className="icon" style={iconSize} width="24" height="24" viewBox="0 0 24 24">
+    <svg  style={iconSize} width="24" height="24" viewBox="0 0 24 24">
+      <path style={iconColor} d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
       <path d="M0 0h24v24H0z" fill="none"/>
-      <path style={iconColor} d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
     </svg>
   )
 }
