@@ -14,7 +14,12 @@ export default props => {
   }
 
   return (
-    <div className='card' style={cardStyle} onClick={props.onClick}>
+    <div 
+      className='card' 
+      style={cardStyle} 
+      title={props.text}
+      onClick={props.onClick} 
+    >
       <img src={props.src || Image} alt={props.text}/>
       <div> 
         <small style={textStyle}>
