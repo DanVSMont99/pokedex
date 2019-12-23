@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Button from '../../components/Button'
+import Icon from '../../components/Icon'
 
 export default () => 
   <nav>
-    <Link to='/addpokemon'>
-      <Button label='Adicionar pokémon' />
+    <Link to='/login'>
+      <Icon color='#FFFFFF' />
     </Link>
   </nav>
