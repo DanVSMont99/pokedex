@@ -2,17 +2,18 @@ import React from 'react'
 import './styles.scss'
 
 export default props => {
-  const backgroundColor = {
-    backgroundColor: props.backgroundColor || ''
+  const buttonStyle = {
+    backgroundColor: props.backgroundColor,
+    width: props.width
   }
 
-  const color = {
-    color: props.color || ''
+  const labelColor = {
+    color: props.color
   }
 
   return (
-    <button className='button' style={backgroundColor}>
-      <p style={color}>
+    <button className='button' style={buttonStyle}>
+      <p style={labelColor}>
         {props.label || 'Button'}
       </p>
     </button>
