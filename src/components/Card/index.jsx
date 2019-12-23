@@ -4,20 +4,20 @@ import './styles.scss'
 
 export default props => {
   const cardStyle = {
-    width: props.width || '15rem',
-    height: props.height || '10rem',
-    backgroundColor: props.backgroundColor || ''
+    width: props.width,
+    height: props.height,
+    backgroundColor: props.backgroundColor
   }
 
   const textStyle = {
-    color: props.color || '#000000'
+    color: props.color
   }
 
   return (
-    <div className='card' style={cardStyle}>
-      <img src={props.src || Image} alt={props.alt || ''}/>
+    <div className='card' style={cardStyle} onClick={props.onClick}>
+      <img src={props.src || Image} alt={props.text}/>
       <small style={textStyle}>
-        {props.text || ''}
+        {props.text}
       </small>
     </div>
   )
