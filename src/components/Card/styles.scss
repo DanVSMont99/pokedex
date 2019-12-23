@@ -21,10 +21,11 @@
     height: calc(100% - 2rem);
   }
 
-  small {
-    margin-top: 1rem;
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
-    text-align: center;
+    margin-top: 1rem;
   }
-   
 }

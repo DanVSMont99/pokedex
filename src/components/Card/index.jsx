@@ -16,9 +16,14 @@ export default props => {
   return (
     <div className='card' style={cardStyle} onClick={props.onClick}>
       <img src={props.src || Image} alt={props.text}/>
-      <small style={textStyle}>
-        {props.text}
-      </small>
+      <div> 
+        <small style={textStyle}>
+          {props.text}
+        </small>
+        <span>
+          #{props.code}
+        </span>
+      </div>
     </div>
   )
 }
