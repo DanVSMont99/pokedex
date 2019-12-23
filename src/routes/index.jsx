@@ -8,7 +8,7 @@ import UpdatePokemon from '../pages/UpdatePokemon'
 export default () => 
   <BrowserRouter>
     <Switch name='http://localhost:3000'>
-      <Route path="/" component={Home} exact />
+      <Route path="/" component={Login} exact />
       <Route path="/login" component={Login} />
       <Route path="/home" component={Home} />
       <Route path="/addpokemon" component={AddPokemon} />
