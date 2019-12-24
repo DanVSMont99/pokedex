@@ -1,0 +1,33 @@
+@import '../../styles/variables.scss';
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-width: 100%;
+  background-color: rgba(0, 0, 0, .4);
+  z-index: 1;
+}
+
+.content {
+  min-width: 30rem;
+  padding: 1.5rem;
+  border-radius: 5px;
+  background-color: $white;
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    font-weight: bold;
+  }
+}
+
+.hidden-modal {
+  display: none;
+}
