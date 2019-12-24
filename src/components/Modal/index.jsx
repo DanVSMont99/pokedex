@@ -13,7 +13,7 @@ export default props => {
         <header>
           <h1>{props.title}</h1>
           <span onClick={closeModal}>
-            <CloseIcon color='#6E6E6E' height='1.5rem' />
+            <CloseIcon color='#6E6E6E' size='1.5rem' />
           </span>
         </header>
         {props.content}
