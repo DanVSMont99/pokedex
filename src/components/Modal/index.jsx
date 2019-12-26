@@ -5,7 +5,7 @@ import './styles.scss'
 export default props => {
   const [modalState, setModalState] = useState(null)
 
-  const closeModal = () => setModalState('hidden-modal')
+  const closeModal = () => setModalState('hidden')
 
   return (
     <div className={`modal ${modalState}`}>
