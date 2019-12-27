@@ -1,9 +1,19 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-
+import { createStore, combineReducers } from 'redux'
+import { Provider } from 'react-redux'
+import PokemonsReducers from './reducers'
+import Routes from './routes'
 import './styles/reset.scss'
 import './styles/custom.scss'
 
-import Routes from './routes'
+const reducers = combineReducers({
+  pokemons: PokemonsReducers
+})
 
-ReactDOM.render(<Routes />, document.getElementById('root'))
+ReactDOM.render(
+  <Provider store={createStore(reducers)}>
+    <Routes />
+  </Provider>, 
+  document.getElementById('root')
+)
