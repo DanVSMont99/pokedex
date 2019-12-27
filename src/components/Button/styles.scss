@@ -38,5 +38,16 @@
       background-color: rgba(0, 0, 0, .06);
     }
   }
-  
+}
+
+.fixed {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  padding: 0;
+  border-radius: 100%;
+
+  &:before {
+    border-radius: 100%;
+  }
 }
