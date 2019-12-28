@@ -29,7 +29,7 @@ function Home(props) {
   return (
     <div className='home'>
       <Header />
-      <Link to='/addpokemon'>
+      <Link to='/add'>
         <FixedButton />
       </Link>
       <main>
