@@ -13,7 +13,7 @@ export default props => {
   }
 
   return (
-    <button className='button' style={buttonStyle}>
+    <button type={props.type || 'submit'} className='button' style={buttonStyle}>
       <p style={labelColor}>
         {props.label || 'Button'}
       </p>
@@ -31,7 +31,7 @@ export const FixedButton = props => {
   }
 
   return (
-    <button className='button fixed' style={buttonStyle}>
+    <button type={props.type || 'submit'} className='button fixed' style={buttonStyle}>
       <Add size={props.size || '6rem'} color={props.color || 'white'} />
     </button>
   )
