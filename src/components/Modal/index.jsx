@@ -1,23 +1,20 @@
-import React, { useState } from 'react'
+import React from 'react'
+import ReactDOM from 'react-dom'
 import CloseIcon from '../../components/Icon'
 import './styles.scss'
 
-export default props => {
-  const [modalState, setModalState] = useState(null)
-
-  const closeModal = () => setModalState('hidden')
-
-  return (
-    <div className={`modal ${modalState}`}>
+export default props => 
+  ReactDOM.createPortal(
+    <div className='modal'>
       <div className='content'>
         <header>
           <h1>{props.title}</h1>
-          <span onClick={closeModal}>
+          <span onClick={props.onClose}>
             <CloseIcon color='#6E6E6E' size='1.5rem' />
           </span>
         </header>
-        {props.content}
+        {props.children}
       </div>
-    </div>
+    </div>,
+    document.getElementById('modal')
   )
-}
