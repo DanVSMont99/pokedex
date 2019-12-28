@@ -1,24 +1,47 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import * as yup from 'yup'
+import { Formik, Form } from 'formik'
+import { useHistory } from 'react-router-dom'
 import Button from '../../components/Button'
-import Input from '../../components/Input'
+import Field from '../../components/Field'
 import pokeball from '../../assets/pokeball.png'
 import './styles.scss'
 
-export default () => 
-  <div className='login'> 
-    <main>
-      <header>
-        <h1>Pokedex</h1>
-        <h2>Seja bem vindo treinador</h2>
-        <img src={pokeball} alt='Pokeball'/>
-      </header>
-      <form>
-        <Input type='email' label='Email' width='100%' placeholder='Digite seu email' />
-        <Input type='password' label='Senha' width='100%' placeholder='Digite sua senha' />
-        <Link to='/home'>
-          <Button label='Entrar agora' width='100%' />
-        </Link>
-      </form>
-    </main>
-  </div>
+export default () => {
+  const fieldInitialValues = {
+    email: '',
+    password: ''
+  }  
+
+  const fieldValidations = yup.object().shape({
+    email: yup.string().email().required(),
+    password: yup.string().min(8).required()
+  })
+
+  const history = useHistory()
+
+  const handleSubmit = () => history.push('/home')
+
+  return (
+    <div className='login'> 
+      <main>
+        <header>
+          <h1>Pokedex</h1>
+          <h2>Seja bem vindo treinador</h2>
+          <img src={pokeball} alt='Pokeball'/>
+        </header>
+        <Formik 
+          initialValues={fieldInitialValues} 
+          validationSchema={fieldValidations}
+          onSubmit={handleSubmit}
+        >
+          <Form>
+            <Field label='e-mail' name='email' placeholder='Digite seu email' width='100%' />
+            <Field label='senha' name='password' type='password' placeholder='Digite sua senha' width='100%' />
+            <Button label='Entrar agora' width='100%' />
+          </Form>
+        </Formik>
+      </main>
+    </div>
+  )
+}
