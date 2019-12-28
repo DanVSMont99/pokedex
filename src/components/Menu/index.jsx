@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Icon from '../../components/Icon'
+import CloseIcon from '../../components/Icon'
 
 export default () => 
   <nav>
     <Link to='/login'>
-      <Icon color='#FFFFFF' />
+      <CloseIcon color='#FFFFFF' />
     </Link>
   </nav>
