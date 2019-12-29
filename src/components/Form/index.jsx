@@ -1,8 +1,19 @@
 import React from 'react'
-import { ErrorMessage, Field } from 'formik'
+import { Formik, Form as Frm, ErrorMessage, Field as Input } from 'formik'
 import './styles.scss'
 
-export default props => {
+const Form = props =>
+  <Formik 
+    initialValues={props.initialValues} 
+    validationSchema={props.validationSchema}
+    onSubmit={props.onSubmit}
+  >
+    <Frm>
+      {props.children}
+    </Frm>
+  </Formik>
+
+const Field = props => {
   const inputSize = {
     width: props.width,
     height: props.height
@@ -13,7 +24,7 @@ export default props => {
       <label htmlFor={props.name}>
         {props.label}
       </label>
-      <Field 
+      <Input 
         id={props.name}
         name={props.name}
         type={props.type || 'text'} 
@@ -23,3 +34,5 @@ export default props => {
     </div>
   )
 }
+
+export { Form, Field }
