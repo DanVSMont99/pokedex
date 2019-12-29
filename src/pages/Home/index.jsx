@@ -1,5 +1,4 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { loadPokemons } from '../../store/actions/pokemons'
@@ -7,14 +6,12 @@ import api from '../../services/api'
 import Header from '../../components/Header'
 import Card from '../../components/Card'
 import { FixedButton } from '../../components/Button'
+import Modal from '../../components/Modal'
+import AddPokemon from '../AddPokemon'
 import './styles.scss'
 
 function Home(props) {
-  async function loadPokemons() {
-    const response = await api.get('pokemons')
-    const pokemons = response.data
-    props.loadPokemons(pokemons)
-  }
+  const [showModal, setShowModal] = useState(false)
 
   function renderPokemons(pokemons) {
     const pokemonsCards = pokemons.map((pokemon, i) => 
@@ -24,18 +21,31 @@ function Home(props) {
     return pokemonsCards
   }
 
+  async function loadPokemons() {
+    const response = await api.get('pokemons')
+    const pokemons = response.data
+    props.loadPokemons(pokemons)
+  }
+
   loadPokemons()
 
   return (
-    <div className='home'>
-      <Header />
-      <Link to='/add'>
-        <FixedButton />
-      </Link>
-      <main>
-        {renderPokemons(props.pokemons)}
-      </main>
-    </div>
+    <>
+      {!showModal ||
+        <Modal title='Adicionar pokémon' onClose={() => setShowModal(false)}>
+          <AddPokemon />
+        </Modal>
+      }
+      <div className='home'>
+        <Header />
+        <span onClick={() => setShowModal(true)}>
+          <FixedButton  />
+        </span>
+        <main>
+          {renderPokemons(props.pokemons)}
+        </main>
+      </div>
+    </>
   )
 }
   
