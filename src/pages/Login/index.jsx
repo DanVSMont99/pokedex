@@ -1,9 +1,8 @@
 import React from 'react'
 import * as yup from 'yup'
-import { Formik, Form } from 'formik'
 import { useHistory } from 'react-router-dom'
+import { Form, Field } from '../../components/Form'
 import Button from '../../components/Button'
-import Field from '../../components/Field'
 import pokeball from '../../assets/pokeball.png'
 import './styles.scss'
 
@@ -30,17 +29,15 @@ export default () => {
           <h2>Seja bem vindo treinador</h2>
           <img src={pokeball} alt='Pokeball'/>
         </header>
-        <Formik 
+        <Form 
           initialValues={fieldInitialValues} 
           validationSchema={fieldValidations}
           onSubmit={handleSubmit}
         >
-          <Form>
-            <Field label='e-mail' name='email' placeholder='Digite seu email' width='100%' />
-            <Field label='senha' name='password' type='password' placeholder='Digite sua senha' width='100%' />
-            <Button label='Entrar agora' width='100%' />
-          </Form>
-        </Formik>
+          <Field label='e-mail' name='email' placeholder='Digite seu email' width='100%' />
+          <Field label='senha' name='password' type='password' placeholder='Digite sua senha' width='100%' />
+          <Button label='Entrar agora' width='100%' />
+        </Form>
       </main>
     </div>
   )
