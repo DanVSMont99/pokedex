@@ -21,9 +21,11 @@ const Field = props => {
 
   return (
     <div className='field' style={inputSize}>
-      <label htmlFor={props.name}>
-        {props.label}
-      </label>
+      {!props.label || 
+        <label htmlFor={props.name}>
+          {props.label}
+        </label>
+      }
       <Input 
         id={props.name}
         name={props.name}
