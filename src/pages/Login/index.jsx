@@ -25,8 +25,8 @@ export default () => {
     <div className='login'> 
       <main>
         <header>
-          <h1>Pokedex</h1>
-          <h2>Seja bem vindo treinador</h2>
+          <h1>Pokédex</h1>
+          <h2>Welcome Pokémon Trainer</h2>
           <img src={pokeball} alt='Pokeball'/>
         </header>
         <Form 
@@ -34,9 +34,9 @@ export default () => {
           validationSchema={fieldValidations}
           onSubmit={handleSubmit}
         >
-          <Field label='e-mail' name='email' placeholder='Digite seu email' width='100%' />
-          <Field label='senha' name='password' type='password' placeholder='Digite sua senha' width='100%' />
-          <Button label='Entrar agora' width='100%' />
+          <Field label='e-mail' name='email' placeholder='Type your e-mail' width='100%' />
+          <Field label='password' name='password' type='password' placeholder='Type your password' width='100%' />
+          <Button label='Log In' width='100%' />
         </Form>
       </main>
     </div>

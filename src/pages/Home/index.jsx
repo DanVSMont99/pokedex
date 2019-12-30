@@ -32,7 +32,7 @@ function Home(props) {
   return (
     <>
       {!showModal ||
-        <Modal title='Adicionar pokémon' onClose={() => setShowModal(false)}>
+        <Modal title='Add pokémon' onClose={() => setShowModal(false)}>
           <AddPokemon />
         </Modal>
       }
