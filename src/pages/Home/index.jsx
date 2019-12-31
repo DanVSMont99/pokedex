@@ -1,22 +1,26 @@
-import React, { useState } from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import { loadPokemons } from '../../store/actions/pokemons'
+import React, { useState ,useEffect } from 'react'
 import api from '../../services/api'
 import Header from '../../components/Header'
 import Card from '../../components/Card'
 import { FixedButton } from '../../components/Button'
 import Modal from '../../components/Modal'
-import PokemonForm from '../../components/PokemonForm'
+import AddPokemon from '../AddPokemon'
+import UpdatePokemon from '../UpdatePokemon'
 import './styles.scss'
 
-function Home(props) {
-  const [showAddPokemonModal, setShowAddPokemonModal] = useState(false)
-  const [showUpdatePokemonModal, setShowUpdatePokemonModal] = useState(false)
-  
+export default () => {
+  const [showAddModal, setShowAddModal] = useState(null)
+  const [showUpdateModal, setShowUpdateModal] = useState(null)
+  const [pokemons, setPokemons] = useState(null)
+
   function renderPokemons(pokemons) {
     const pokemonsCards = pokemons.map((pokemon, i) => 
-      <Card key={i} text={pokemon.name} code={pokemon.number} onClick={() => setShowUpdatePokemonModal(true)} />
+      <Card 
+        key={i} 
+        text={pokemon.name} 
+        code={pokemon.number}
+        onClick={() => setShowUpdateModal(true)}
+      />
     )
       
     return pokemonsCards
@@ -24,38 +28,33 @@ function Home(props) {
 
   async function loadPokemons() {
     const response = await api.get('pokemons')
-    const pokemons = response.data
-    props.loadPokemons(pokemons)
+    const pokemons = renderPokemons(response.data)
+    setPokemons(pokemons)
   }
 
-  loadPokemons()
+  useEffect(() => {
+    loadPokemons()
+  }, [])
 
   return (
-    <>
-      {!showAddPokemonModal ||
-        <Modal title='Add pokémon' onClose={() => setShowAddPokemonModal(false)}>
-          <PokemonForm request='post' />
+    <div className='home'>
+      <Header />
+      {!showAddModal || 
+        <Modal title='Add Pokémon' onClose={() => setShowAddModal(false)}>
+          <AddPokemon />
         </Modal>
       }
-      {!showUpdatePokemonModal ||
-        <Modal title='Update pokémon' onClose={() => setShowUpdatePokemonModal(false)}>
-          <PokemonForm request='put' />
+      {!showUpdateModal || 
+        <Modal title='Update Pokémon' onClose={() => setShowUpdateModal(false)}>
+          <UpdatePokemon pokemonId={'5e0bb14662563606449700e6'}/>
         </Modal>
       }
-      <div className='home'>
-        <Header />
-        <span onClick={() => setShowAddPokemonModal(true)}>
-          <FixedButton  />
-        </span>
-        <main>
-          {renderPokemons(props.pokemons)}
-        </main>
-      </div>
-    </>
+      <span onClick={() => setShowAddModal(true)}>
+        <FixedButton />
+      </span>
+      <main>
+        {pokemons}
+      </main>
+    </div>
   )
 }
-  
-const mapStateToProps = state => ({ pokemons: state.pokemons })
-const mapDispatchToProps = dispatch => bindActionCreators({ loadPokemons }, dispatch)
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
