@@ -71,8 +71,8 @@ export default props => {
       const body = formatFormData(data)
 
       props.request === 'post' 
-        ? await api.post('pokemons', body, headers)
-        : await api.put('pokemons', body, headers)
+        ? await api.post(props.endpoint, body, headers)
+        : await api.put(props.endpoint, body, headers)
         
     } catch (error) {
       alert('Error') 
