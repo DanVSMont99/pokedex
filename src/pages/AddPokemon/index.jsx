@@ -27,5 +27,11 @@ export default () => {
     skillDescription3: ''
   }
   
-  return <PokemonForm fieldInitialValues={fieldInitialValues} endpoint='pokemon' />
+  return (
+    <PokemonForm 
+      request='post' 
+      endpoint='pokemons' 
+      fieldInitialValues={fieldInitialValues} 
+    />
+  )
 }
