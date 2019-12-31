@@ -7,31 +7,6 @@ import { Image } from '../Icon'
 import './styles.scss'
 
 export default props => {
-  let fieldInitialValues = {
-    name: '',
-    number: '',
-    color: '',
-    height: '',
-    weight: '',
-    attack: '',
-    defense: '',
-    speed: '',
-    specialAttack: '',
-    specialDefense: '',
-    hp: '',
-    type: '',
-    description: '',
-    skillName1: '',
-    skillForce1: '',
-    skillDescription1: '',
-    skillName2: '',
-    skillForce2: '',
-    skillDescription2: '',
-    skillName3: '',
-    skillForce3: '',
-    skillDescription3: ''
-  }  
-
   const fieldValidations = yup.object().shape({
     name: yup.string().max(20).required(),
     number: yup.number().min(1).required(),
@@ -107,7 +82,7 @@ export default props => {
   return (
     <div className='add-pokemon'>
       <Form 
-        initialValues={fieldInitialValues} 
+        initialValues={props.fieldInitialValues} 
         validationSchema={fieldValidations}
         onSubmit={handleSubmit}
       >
