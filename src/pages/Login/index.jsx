@@ -19,7 +19,7 @@ export default () => {
 
   const history = useHistory()
 
-  const handleSubmit = () => history.push('/home')
+  const handleSubmit = () => history.push('/')
 
   return (
     <div className='login'> 

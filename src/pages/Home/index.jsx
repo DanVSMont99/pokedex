@@ -7,15 +7,16 @@ import Header from '../../components/Header'
 import Card from '../../components/Card'
 import { FixedButton } from '../../components/Button'
 import Modal from '../../components/Modal'
-import AddPokemon from '../AddPokemon'
+import PokemonForm from '../../components/PokemonForm'
 import './styles.scss'
 
 function Home(props) {
-  const [showModal, setShowModal] = useState(false)
-
+  const [showAddPokemonModal, setShowAddPokemonModal] = useState(false)
+  const [showUpdatePokemonModal, setShowUpdatePokemonModal] = useState(false)
+  
   function renderPokemons(pokemons) {
     const pokemonsCards = pokemons.map((pokemon, i) => 
-      <Card key={i} text={pokemon.name} code={pokemon.number} />
+      <Card key={i} text={pokemon.name} code={pokemon.number} onClick={() => setShowUpdatePokemonModal(true)} />
     )
       
     return pokemonsCards
@@ -31,14 +32,19 @@ function Home(props) {
 
   return (
     <>
-      {!showModal ||
-        <Modal title='Add pokémon' onClose={() => setShowModal(false)}>
-          <AddPokemon />
+      {!showAddPokemonModal ||
+        <Modal title='Add pokémon' onClose={() => setShowAddPokemonModal(false)}>
+          <PokemonForm request='post' />
+        </Modal>
+      }
+      {!showUpdatePokemonModal ||
+        <Modal title='Update pokémon' onClose={() => setShowUpdatePokemonModal(false)}>
+          <PokemonForm request='put' />
         </Modal>
       }
       <div className='home'>
         <Header />
-        <span onClick={() => setShowModal(true)}>
+        <span onClick={() => setShowAddPokemonModal(true)}>
           <FixedButton  />
         </span>
         <main>
