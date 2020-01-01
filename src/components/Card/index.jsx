@@ -18,7 +18,6 @@ export default props => {
       className='card' 
       style={cardStyle} 
       title={props.text}
-      onClick={props.onClick} 
     >
       <img src={props.src || Image} alt={props.text}/>
       <div> 

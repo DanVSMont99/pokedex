@@ -1,4 +1,5 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import api from '../../services/api'
 import * as yup from 'yup'
 import { Form, Field } from '../Form'
@@ -7,6 +8,8 @@ import { Image } from '../Icon'
 import './styles.scss'
 
 export default props => {
+  const history = useHistory()
+
   const fieldValidations = yup.object().shape({
     name: yup.string().max(20).required(),
     number: yup.number().min(1).required(),
@@ -73,6 +76,8 @@ export default props => {
       props.request === 'post' 
         ? await api.post(props.endpoint, body, headers)
         : await api.put(props.endpoint, body, headers)
+
+      history.push('/')
         
     } catch (error) {
       alert('Error') 

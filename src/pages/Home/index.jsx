@@ -1,26 +1,19 @@
 import React, { useState ,useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import api from '../../services/api'
 import Header from '../../components/Header'
 import Card from '../../components/Card'
 import { FixedButton } from '../../components/Button'
-import Modal from '../../components/Modal'
-import AddPokemon from '../AddPokemon'
-import UpdatePokemon from '../UpdatePokemon'
 import './styles.scss'
 
 export default () => {
-  const [showAddModal, setShowAddModal] = useState(null)
-  const [showUpdateModal, setShowUpdateModal] = useState(null)
   const [pokemons, setPokemons] = useState(null)
 
   function renderPokemons(pokemons) {
-    const pokemonsCards = pokemons.map((pokemon, i) => 
-      <Card 
-        key={i} 
-        text={pokemon.name} 
-        code={pokemon.number}
-        onClick={() => setShowUpdateModal(true)}
-      />
+    const pokemonsCards = pokemons.map((pokemon, i) =>
+      <Link key={i} to={`/update/${pokemon._id}`}> 
+        <Card text={pokemon.name} code={pokemon.number} />
+      </Link>
     )
       
     return pokemonsCards
@@ -39,19 +32,9 @@ export default () => {
   return (
     <div className='home'>
       <Header />
-      {!showAddModal || 
-        <Modal title='Add Pokémon' onClose={() => setShowAddModal(false)}>
-          <AddPokemon />
-        </Modal>
-      }
-      {!showUpdateModal || 
-        <Modal title='Update Pokémon' onClose={() => setShowUpdateModal(false)}>
-          <UpdatePokemon pokemonId={'5e0bb14662563606449700e6'}/>
-        </Modal>
-      }
-      <span onClick={() => setShowAddModal(true)}>
+      <Link to='/add'>
         <FixedButton />
-      </span>
+      </Link>
       <main>
         {pokemons}
       </main>
