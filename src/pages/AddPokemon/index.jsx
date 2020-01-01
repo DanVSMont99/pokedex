@@ -20,15 +20,7 @@ export default () => {
     hp: '',
     type: '',
     description: '',
-    skillName1: '',
-    skillForce1: '',
-    skillDescription1: '',
-    skillName2: '',
-    skillForce2: '',
-    skillDescription2: '',
-    skillName3: '',
-    skillForce3: '',
-    skillDescription3: ''
+    abilities: []
   }
   
   return (

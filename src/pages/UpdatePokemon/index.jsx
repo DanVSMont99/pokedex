@@ -5,6 +5,7 @@ import api from '../../services/api'
 import PokemonForm from '../../components/PokemonForm'
 import Modal from '../../components/Modal'
 import { ArrowLeft } from '../../components/Icon'
+import { replaceNullToEmpty } from '../../utils'
 import './styles.scss'
 
 export default () => {
@@ -16,25 +17,14 @@ export default () => {
 
   async function loadPokemon() {
     const response = await api.get(`pokemons/${pokemonId}`)
-
-    const fieldInitialValues = response.data
-
-    fieldInitialValues.skillName1 = fieldInitialValues.abilities[0].name;
-    fieldInitialValues.skillForce1 = fieldInitialValues.abilities[0].force;
-    fieldInitialValues.skillDescription1 = fieldInitialValues.abilities[0].description;
-    fieldInitialValues.skillName2 = fieldInitialValues.abilities[1].name;
-    fieldInitialValues.skillForce2 = fieldInitialValues.abilities[1].force;
-    fieldInitialValues.skillDescription2 = fieldInitialValues.abilities[1].description;
-    fieldInitialValues.skillName3 = fieldInitialValues.abilities[2].name;
-    fieldInitialValues.skillForce3 = fieldInitialValues.abilities[2].force;
-    fieldInitialValues.skillDescription3 = fieldInitialValues.abilities[2].description;
-
+    const pokemonData = replaceNullToEmpty(response.data)
+    
     setForm(
       <Modal title='Update pokémon'>
         <PokemonForm 
           request='put' 
           endpoint={`pokemons/${pokemonId}`} 
-          fieldInitialValues={fieldInitialValues} 
+          fieldInitialValues={pokemonData} 
         />
       </Modal>
     )

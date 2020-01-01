@@ -16,62 +16,34 @@ export default props => {
     color: yup.string().required(),
     height: yup.number().min(1).required(),
     weight: yup.number().min(1).required(),
-    attack: yup.number().min(1).required(),
-    defense: yup.number().min(1).required(),
-    speed: yup.number().min(1).required(),
-    specialAttack: yup.number().min(1).required(),
-    specialDefense: yup.number().min(1).required(),
-    hp: yup.number().min(1).required(),
-    type: yup.string().required(),
-    description: yup.string().max(30).required(),
-    skillName1: yup.string().required(),
-    skillForce1: yup.number().min(15).max(120).required(),
-    skillDescription1: yup.string().required(),
-    skillName2: yup.string().required(),
-    skillForce2: yup.number().min(15).max(120).required(),
-    skillDescription2: yup.string().required(),
-    skillName3: yup.string().required(),
-    skillForce3: yup.number().min(15).max(120).required(),
-    skillDescription3: yup.string().required()
+    attack: yup.number().min(1),
+    defense: yup.number().min(1),
+    speed: yup.number().min(1),
+    specialAttack: yup.number().min(1),
+    specialDefense: yup.number().min(1),
+    hp: yup.number().min(1),
+    type: yup.string(),
+    description: yup.string().max(30),
+    abilities: yup.array().of(
+      yup.object().shape({
+        name: yup.string(),
+        force: yup.number()
+        .min(
+          15, 
+          'force must be greater than or equal to 15'
+        )
+        .max(
+          120,
+          'force must be less than or equal to 120'
+        ),
+        description: yup.string()
+      })
+    )
   })
 
-  function formatFormData(data) {
-    const { 
-      skillName1, skillForce1, skillDescription1, 
-      skillName2, skillForce2, skillDescription2, 
-      skillName3, skillForce3, skillDescription3, 
-      ...body 
-    } = data
-
-    const skill1 = { 
-      name: skillName1,
-      force: skillForce1,
-      description: skillDescription1,
-    }
-
-    const skill2 = { 
-      name: skillName2,
-      force: skillForce2,
-      description: skillDescription2,
-    }
-
-    const skill3 = { 
-      name: skillName3,
-      force: skillForce3,
-      description: skillDescription3,
-    }
-
-    const skills = [skill1, skill2, skill3]
-
-    body.abilities = skills
-
-    return body
-  }
-
-  async function handleSubmit(data) {
+  async function handleSubmit(body) {
     try {
       const headers = {headers: { Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjVkZmU0ZjZjYTJlOTU1MjU1MDViMDYwYSIsIm5hbWUiOiJHYWJyaWVsIiwibGFzdE5hbWUiOiJNYXJxdWVzIiwiZW1haWwiOiJnYWJyaWVsLm1hcnF1ZXNkZXNvdXphMjhAZ21haWwuY29tIiwiY3JlYXRlQXQiOiIyMDE5LTEyLTIxVDE2OjU5OjI0Ljg0OFoiLCJfX3YiOjB9LCJpYXQiOjE1NzY5NDc1OTh9.jnjY3ngaxhgOA4U3PRWblMKPpSBbODju0VE-oAkX7gc' }}
-      const body = formatFormData(data)
 
       props.request === 'post' 
         ? await api.post(props.endpoint, body, headers)
@@ -119,25 +91,25 @@ export default props => {
         <section className='abiliity-session'>
           <h2>Skill 1</h2>
           <section>
-            <Field name='skillName1' placeholder='name' width='100%' />
-            <Field name='skillForce1' placeholder='force' width='100%' />
-            <Field name='skillDescription1' placeholder='description' width='100%' />
+            <Field name='abilities[0].name' placeholder='name' width='100%' />
+            <Field name='abilities[0].force' placeholder='force' width='100%' />
+            <Field name='abilities[0].description' placeholder='description' width='100%' />
           </section>
         </section>
         <section className='abiliity-session'>
           <h2>Skill 2</h2>
           <section>
-            <Field name='skillName2' placeholder='name' width='100%' />
-            <Field name='skillForce2' placeholder='force' width='100%' />
-            <Field name='skillDescription2' placeholder='description' width='100%' />
+            <Field name='abilities[1].name' placeholder='name' width='100%' />
+            <Field name='abilities[1].force' placeholder='force' width='100%' />
+            <Field name='abilities[1].description' placeholder='description' width='100%' />
           </section>
         </section>
         <section className='abiliity-session'>
           <h2>Skill 3</h2>
           <section>
-            <Field name='skillName3' placeholder='name' width='100%' />
-            <Field name='skillForce3' placeholder='force' width='100%' />
-            <Field name='skillDescription3' placeholder='description' width='100%' />
+            <Field name='abilities[2].name' placeholder='name' width='100%' />
+            <Field name='abilities[2].force' placeholder='force' width='100%' />
+            <Field name='abilities[2].description' placeholder='description' width='100%' />
           </section>
         </section>
         <section>
