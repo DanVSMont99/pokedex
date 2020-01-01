@@ -8,9 +8,7 @@ const Form = props =>
     validationSchema={props.validationSchema}
     onSubmit={props.onSubmit}
   >
-    <Frm>
-      {props.children}
-    </Frm>
+    <Frm>{props.children}</Frm>
   </Formik>
 
 const Field = props => {

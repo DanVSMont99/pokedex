@@ -2,11 +2,12 @@
 
 .button {
   position: relative;
+  width: 100%;
   background-color: $red;
   padding: .8rem;
   margin: .25rem;
   outline: none;
-  border: none;
+  border: 1px solid $red;
   border-radius: 5px;
   cursor: pointer;
   z-index: 1; 
@@ -41,8 +42,18 @@
   }
 }
 
+.outline {
+  background: transparent;
+  border-color: $red;
+
+  p {
+    color: $red;
+  }
+}
+
 .fixed {
   position: fixed;
+  width: auto;
   bottom: .5rem;
   right: .5rem;
   padding: 0;

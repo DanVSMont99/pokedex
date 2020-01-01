@@ -34,9 +34,20 @@ export default () => {
           validationSchema={fieldValidations}
           onSubmit={handleSubmit}
         >
-          <Field label='e-mail' name='email' placeholder='Type your e-mail' width='100%' />
-          <Field label='password' name='password' type='password' placeholder='Type your password' width='100%' />
-          <Button label='Log In' width='100%' />
+          <Field 
+            label='e-mail' 
+            name='email' 
+            placeholder='Type your e-mail' 
+            width='100%'
+          />
+          <Field 
+            label='password' 
+            name='password' 
+            type='password' 
+            placeholder='Type your password' 
+            width='100%'
+          />
+          <Button>Log In</Button>
         </Form>
       </main>
     </div>

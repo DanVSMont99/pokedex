@@ -113,7 +113,7 @@ export default props => {
           </section>
         </section>
         <section>
-          <Button label='Save' width='100%' />
+          <Button width='100%'>Save</Button>
         </section>
       </Form>
     </div>

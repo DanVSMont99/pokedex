@@ -20,7 +20,21 @@ export default () => {
     hp: '',
     type: '',
     description: '',
-    abilities: []
+    abilities: [{
+      name: '',
+      force: '',
+      description: ''
+    },
+    {
+      name: '',
+      force: '',
+      description: ''
+    },
+    {
+      name: '',
+      force: '',
+      description: ''
+    }]
   }
   
   return (
