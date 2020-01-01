@@ -6,6 +6,9 @@ export default props =>
   ReactDOM.createPortal(
     <div className='modal'>
       <div className='content'>
+        <header>
+          <h1>{props.title}</h1>
+        </header>
         {props.children}
       </div>
     </div>,
