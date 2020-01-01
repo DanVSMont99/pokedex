@@ -32,12 +32,11 @@ export default () => {
   }
   
   return (
-    <div class='add-pokemon-page'>
+    <div className='add-pokemon-page'>
       <Link to='/'>
         <ArrowLeft color='white' />
       </Link>
-      <Modal>
-        <h1>Add pokémon</h1>
+      <Modal title='Add pokémon'>
         <PokemonForm 
           request='post' 
           endpoint='pokemons' 

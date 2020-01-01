@@ -30,8 +30,7 @@ export default () => {
     fieldInitialValues.skillDescription3 = fieldInitialValues.abilities[2].description;
 
     setForm(
-      <Modal>
-        <h1>Update pokémon</h1>
+      <Modal title='Update pokémon'>
         <PokemonForm 
           request='put' 
           endpoint={`pokemons/${pokemonId}`} 
