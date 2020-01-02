@@ -1,7 +1,10 @@
+@import './variables.scss';
+
 :root { font-size: 16px }
 
 * {
   box-sizing: border-box; 
+  color: $dark;
 }
 
 h1 { font-size: 2.0rem; }
