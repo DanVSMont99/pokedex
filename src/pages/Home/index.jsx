@@ -12,7 +12,7 @@ export default () => {
   function renderPokemons(pokemons) {
     const pokemonsCards = pokemons.map((pokemon, i) =>
       <Link key={i} to={`/update/${pokemon._id}`}> 
-        <Card text={pokemon.name} code={pokemon.number} />
+        <Card text={pokemon.name} code={pokemon.number} src={pokemon.avatar_url} />
       </Link>
     )
       
