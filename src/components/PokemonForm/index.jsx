@@ -85,31 +85,31 @@ export default props => {
           <Field label='hp' name='hp' width='100%' />
         </section>
         <section>
-          <Field label='description' name='description' width='200%' />
           <Field label='type' name='type' width='100%' />
+          <Field label='description' name='description' width='200%' />
         </section>
         <section className='abiliity-session'>
-          <h2>Skill 1</h2>
+          <h2>ability</h2>
           <section>
             <Field name='abilities[0].name' placeholder='name' width='100%' />
-            <Field name='abilities[0].force' placeholder='force' width='100%' />
-            <Field name='abilities[0].description' placeholder='description' width='100%' />
+            <Field name='abilities[0].description' placeholder='description' width='150%' />
+            <Field name='abilities[0].force' placeholder='force' width='50%' />
           </section>
         </section>
         <section className='abiliity-session'>
-          <h2>Skill 2</h2>
+          <h2>ability</h2>
           <section>
             <Field name='abilities[1].name' placeholder='name' width='100%' />
-            <Field name='abilities[1].force' placeholder='force' width='100%' />
-            <Field name='abilities[1].description' placeholder='description' width='100%' />
+            <Field name='abilities[1].description' placeholder='description' width='150%' />
+            <Field name='abilities[1].force' placeholder='force' width='50%' />
           </section>
         </section>
         <section className='abiliity-session'>
-          <h2>Skill 3</h2>
+          <h2>ability</h2>
           <section>
             <Field name='abilities[2].name' placeholder='name' width='100%' />
-            <Field name='abilities[2].force' placeholder='force' width='100%' />
-            <Field name='abilities[2].description' placeholder='description' width='100%' />
+            <Field name='abilities[2].description' placeholder='description' width='150%' />
+            <Field name='abilities[2].force' placeholder='force' width='50%' />
           </section>
         </section>
         <section>
