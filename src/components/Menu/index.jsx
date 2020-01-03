@@ -5,6 +5,6 @@ import CloseIcon from '../../components/Icon'
 export default () => 
   <nav>
     <Link to='/login'>
-      <CloseIcon color='#FFFFFF' />
+      <CloseIcon color='white' />
     </Link>
   </nav>

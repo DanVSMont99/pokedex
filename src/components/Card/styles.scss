@@ -8,13 +8,13 @@
   height: 10rem;
   width: 100%;
   padding: 1rem;
-  background-color: $white;
-  border: 1px solid $grey;
+  background-color: white;
+  border: 1px solid $secondary;
   border-radius: 3px;
   cursor: pointer;
 
   &:hover {
-    box-shadow: 0 0 .1px 2px $grey;
+    box-shadow: 0 0 .1px 2px $secondary;
   }
 
   img {
@@ -33,7 +33,7 @@
       position: absolute;
       bottom: 0;
       right: 0;
-      background-color: $white;
+      background-color: white;
       padding-left: .5rem;
     }
   }

@@ -20,21 +20,21 @@
     height: 100%;
     width: 100%;
     padding: .8rem;
-    border: 1px solid $grey;
+    border: 1px solid $secondary;
     border-radius: 3px;
     font-weight: bold;
     outline: none;
 
     &:focus {
-      border-color: $red;
-      box-shadow: 0 0 .1px 1px $red;
+      border-color: $primary;
+      box-shadow: 0 0 .1px 1px $primary;
     }
   }
 
   span {
     padding-top: 2px;
     font-size: .95rem;
-    color: $red;
+    color: $primary;
   }
 }
 
@@ -44,17 +44,17 @@
   justify-content: center;
   width: 100%;
 
-  &:hover {
-    background-color: rgba(0, 0, 0, .03);
-  }
-
   label {
     width: 100%;
     padding: 1rem;
     text-align: center;
-    border: 1px solid $grey;
+    border: 1px solid $secondary;
     border-radius: .5rem;
     cursor: pointer;
+
+    &:hover {
+      background-color: $shade;
+    }
 
     img {
       height: 6rem;
