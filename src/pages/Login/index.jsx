@@ -4,6 +4,8 @@ import * as yup from 'yup'
 
 import pokeball from '../../assets/pokeball.png'
 
+import { login } from '../../auth'
+
 import { Form, Field } from '../../components/Form'
 import Button from '../../components/Button'
 import './styles.scss'
@@ -21,7 +23,14 @@ export default () => {
 
   const history = useHistory()
 
-  const handleSubmit = () => history.push('/')
+  const handleSignIn = (data) => {
+    const { email, password } = data
+
+    if (email && password) {
+      login('tokenapi')
+      history.push('/')
+    }
+  }
 
   return (
     <div className='login'> 
@@ -34,7 +43,7 @@ export default () => {
         <Form 
           initialValues={fieldInitialValues} 
           validationSchema={fieldValidations}
-          onSubmit={handleSubmit}
+          onSubmit={handleSignIn}
         >
           <Field 
             label='e-mail' 

@@ -1,11 +1,24 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
+
+import { logout } from '../../auth'
 
 import CloseIcon from '../../components/Icon'
 
-export default () => 
-  <nav>
-    <Link to='/login'>
-      <CloseIcon color='white' />
-    </Link>
-  </nav>
+export default () => {
+  const history = useHistory()
+
+  const handleLogout = () => {
+    logout()
+    history.push('/login')
+  }
+
+  return (
+    <nav>
+      <span onClick={handleLogout}>
+        <CloseIcon color='white' />
+      </span>
+    </nav>
+  )
+}
+  

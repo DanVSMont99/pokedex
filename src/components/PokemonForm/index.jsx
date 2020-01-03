@@ -44,11 +44,9 @@ export default props => {
 
   async function handleSubmit(body) {
     try {
-      const headers = {headers: { Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjVkZmU0ZjZjYTJlOTU1MjU1MDViMDYwYSIsIm5hbWUiOiJHYWJyaWVsIiwibGFzdE5hbWUiOiJNYXJxdWVzIiwiZW1haWwiOiJnYWJyaWVsLm1hcnF1ZXNkZXNvdXphMjhAZ21haWwuY29tIiwiY3JlYXRlQXQiOiIyMDE5LTEyLTIxVDE2OjU5OjI0Ljg0OFoiLCJfX3YiOjB9LCJpYXQiOjE1NzY5NDc1OTh9.jnjY3ngaxhgOA4U3PRWblMKPpSBbODju0VE-oAkX7gc' }}
-
       props.method === 'post' 
-        ? await api.post(props.action, body, headers)
-        : await api.put(props.action, body, headers)
+        ? await api.post(props.action, body)
+        : await api.put(props.action, body)
 
       history.push('/')
         

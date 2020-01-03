@@ -1,5 +1,8 @@
 import React from 'react'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { BrowserRouter, Switch } from 'react-router-dom'
+
+import PublicRoute from './PublicRoute' 
+import PrivateRoute from './PrivateRoute'
 
 import Login from '../pages/Login'
 import Home from '../pages/Home'
@@ -9,9 +12,9 @@ import UpdatePokemon from '../pages/UpdatePokemon'
 export default () => 
   <BrowserRouter>
     <Switch name='http://localhost:3000'>
-      <Route path='/login' component={Login} exact />
-      <Route path='/add' component={AddPokemon} exact />
-      <Route path='/update/:id' component={UpdatePokemon} exact />
-      <Route component={Home} />
+      <PublicRoute path='/login' component={Login} exact />
+      <PrivateRoute path='/add' component={AddPokemon} exact />
+      <PrivateRoute path='/update/:id' component={UpdatePokemon} exact />
+      <PrivateRoute component={Home} />
     </Switch>
   </BrowserRouter>
