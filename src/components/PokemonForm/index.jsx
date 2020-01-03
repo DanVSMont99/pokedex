@@ -72,12 +72,14 @@ export default props => {
           <Field label='weight' name='weight' width='100%' />
         </section>
         <section>
-          <Field label='attack' name='attack' width='100%' />
-          <Field label='defense' name='defense' width='100%' />
-          <Field label='speed' name='speed' width='100%' />
-          <Field label='special attack' name='specialAttack' width='100%' />
-          <Field label='special defense' name='specialDefense' width='100%' />
           <Field label='hp' name='hp' width='100%' />
+          <Field label='attack' name='attack' width='100%' />
+          <Field label='special attack' name='specialAttack' width='100%' />
+        </section>
+        <section>
+          <Field label='defense' name='defense' width='100%' />
+          <Field label='special defense' name='specialDefense' width='100%' />
+          <Field label='speed' name='speed' width='100%' />
         </section>
         <section>
           <Field label='type' name='type' width='100%' />
