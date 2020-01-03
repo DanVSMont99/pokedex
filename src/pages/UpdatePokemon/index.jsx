@@ -30,13 +30,14 @@ export default () => {
     setForm(
       <Modal title='Update pokémon'>
         <UploadForm 
+          method='put'
+          action={`pokemons/upload/${pokemonId}`}
           name='img' 
           src={pokemonData.avatar_url}
-          action={`pokemons/upload/${pokemonId}`}
         />
         <PokemonForm 
-          request='put' 
-          endpoint={`pokemons/${pokemonId}`} 
+          method='put' 
+          action={`pokemons/${pokemonId}`} 
           fieldInitialValues={pokemonData} 
         />
         <span onClick={deletePokemon} className='delete-button'>

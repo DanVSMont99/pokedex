@@ -44,8 +44,8 @@ export default () => {
       </Link>
       <Modal title='Add pokémon'>
         <PokemonForm 
-          request='post' 
-          endpoint='pokemons' 
+          method='post' 
+          action='pokemons' 
           fieldInitialValues={fieldInitialValues} 
         />
       </Modal>

@@ -50,7 +50,9 @@ const UploadForm = props => {
 
     setImage('...')
 
-    const response = await api.put(props.action, formData)
+    const response = props.method === 'post' 
+      ? await api.post(props.action, formData)
+      : await api.put(props.action, formData)
 
     setImage(<img src={response.data.url} alt='upload'/>)
   }
