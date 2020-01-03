@@ -44,6 +44,10 @@
   justify-content: center;
   width: 100%;
 
+  &:hover {
+    background-color: rgba(0, 0, 0, .03);
+  }
+
   label {
     width: 100%;
     padding: 1rem;
