@@ -82,7 +82,7 @@ export default props => {
           <Field label='speed' name='speed' width='100%' />
         </section>
         <section>
-          <Field label='type' name='type' width='100%' />
+          <Field label='type' name='type' placeholder='Grass, Poison, ...' width='100%' />
           <Field label='description' name='description' width='200%' />
         </section>
         <section className='abiliity-session'>
