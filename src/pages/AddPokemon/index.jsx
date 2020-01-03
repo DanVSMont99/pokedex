@@ -1,9 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import PokemonForm from '../../components/PokemonForm'
 import Modal from '../../components/Modal'
-import { ArrowLeft } from '../../components/Icon'
-import './styles.scss'
 
 export default () => {
   let fieldInitialValues = {
@@ -38,17 +35,12 @@ export default () => {
   }
   
   return (
-    <div className='add-pokemon-page'>
-      <Link to='/'>
-        <ArrowLeft color='white' />
-      </Link>
-      <Modal title='Add pokémon'>
-        <PokemonForm 
-          method='post' 
-          action='pokemons' 
-          fieldInitialValues={fieldInitialValues} 
-        />
-      </Modal>
-    </div>
+    <Modal title='Add pokémon'>
+      <PokemonForm 
+        method='post' 
+        action='pokemons' 
+        fieldInitialValues={fieldInitialValues} 
+      />
+    </Modal>
   )
 }

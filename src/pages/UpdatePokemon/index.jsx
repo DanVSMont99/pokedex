@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
-import { Link } from 'react-router-dom'
 import api from '../../services/api'
 import PokemonForm from '../../components/PokemonForm'
 import { UploadForm } from '../../components/Form'
 import Modal from '../../components/Modal'
-import { ArrowLeft } from '../../components/Icon'
 import { replaceNullToEmpty } from '../../utils'
 import Button from '../../components/Button'
 import './styles.scss'
@@ -40,8 +38,8 @@ export default () => {
           action={`pokemons/${pokemonId}`} 
           fieldInitialValues={pokemonData} 
         />
-        <span onClick={deletePokemon} className='delete-button'>
-          <Button width='100%' class='outline'>
+        <span className='delete-button'>
+          <Button onClick={deletePokemon} width='100%' class='outline'>
             Delete this pokemon
           </Button>
         </span>
@@ -55,9 +53,6 @@ export default () => {
   
   return (
     <div className='update-pokemon-page'>
-      <Link to='/'>
-        <ArrowLeft color='white' />
-      </Link>
       {form}
     </div>
   )
