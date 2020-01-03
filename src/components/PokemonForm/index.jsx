@@ -4,7 +4,6 @@ import api from '../../services/api'
 import * as yup from 'yup'
 import { Form, Field } from '../Form'
 import Button from '../Button'
-import { Image } from '../Icon'
 import './styles.scss'
 
 export default props => {
@@ -63,10 +62,6 @@ export default props => {
         validationSchema={fieldValidations}
         onSubmit={handleSubmit}
       >
-        <label htmlFor='file-field' className='file-field-label' >
-          <Image size='5rem' color='#E6E6E6' />
-          <Field name='file-field' type='file' />
-        </label>
         <section>
           <Field label='name' name='name' width='100%' />
           <Field label='number' name='number' width='50%' />

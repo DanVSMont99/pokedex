@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import api from '../../services/api'
 import PokemonForm from '../../components/PokemonForm'
+import { UploadForm } from '../../components/Form'
 import Modal from '../../components/Modal'
 import { ArrowLeft } from '../../components/Icon'
 import { replaceNullToEmpty } from '../../utils'
@@ -28,6 +29,11 @@ export default () => {
     
     setForm(
       <Modal title='Update pokémon'>
+        <UploadForm 
+          name='img' 
+          src={pokemonData.avatar_url}
+          action={`pokemons/upload/${pokemonId}`}
+        />
         <PokemonForm 
           request='put' 
           endpoint={`pokemons/${pokemonId}`} 
