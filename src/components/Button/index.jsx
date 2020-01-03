@@ -7,6 +7,7 @@ export default props =>
     type={props.type || 'submit'} 
     style={{width: props.width}} 
     className={`button ${props.class}`}
+    onClick={props.onClick}
   >
     <p>{props.children}</p>
   </button>
