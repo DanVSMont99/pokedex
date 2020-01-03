@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
+
 import api from '../../services/api'
-import PokemonForm from '../../components/PokemonForm'
-import { UploadForm } from '../../components/Form'
-import Modal from '../../components/Modal'
+
 import { replaceNullToEmpty } from '../../utils'
+import { UploadForm } from '../../components/Form'
+import PokemonForm from '../../components/PokemonForm'
+import Modal from '../../components/Modal'
 import Button from '../../components/Button'
 import './styles.scss'
 

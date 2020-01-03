@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Formik, Form as Frm, ErrorMessage, Field as Input } from 'formik'
+
 import api from '../../services/api'
+
 import { Image } from '../Icon'
 import './styles.scss'
 

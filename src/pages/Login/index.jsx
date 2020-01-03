@@ -1,9 +1,11 @@
 import React from 'react'
-import * as yup from 'yup'
 import { useHistory } from 'react-router-dom'
+import * as yup from 'yup'
+
+import pokeball from '../../assets/pokeball.png'
+
 import { Form, Field } from '../../components/Form'
 import Button from '../../components/Button'
-import pokeball from '../../assets/pokeball.png'
 import './styles.scss'
 
 export default () => {

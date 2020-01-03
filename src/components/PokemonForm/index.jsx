@@ -1,7 +1,9 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
-import api from '../../services/api'
 import * as yup from 'yup'
+
+import api from '../../services/api'
+
 import { Form, Field } from '../Form'
 import Button from '../Button'
 import './styles.scss'

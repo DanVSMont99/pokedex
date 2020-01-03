@@ -1,5 +1,7 @@
 import React from 'react'
+
 import Image from '../../assets/pokeball.png'
+
 import './styles.scss'
 
 export default props => {
