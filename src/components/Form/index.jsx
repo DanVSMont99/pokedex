@@ -44,19 +44,38 @@ const UploadForm = props => {
     props.src ? <img src={props.src} alt='upload'/> : null
   )
 
+  const fileIsValid = file => {
+    const fileType = file.type
+    const fileSize = file.size
+
+    if (fileType !== 'image/png') {
+      setImage('Somente imagens do tipo png são permitidas')
+      return false
+    }
+
+    if (fileSize >= 100000) {
+      setImage('Somente imagens menores que 100KB são permitidas')
+      return false
+    }
+
+    return true
+  }
+
   const uploadFile = async event => {
     const file = event.target.files[0]
 
-    const formData = new FormData()
-    formData.append('img', file, file.name)
+    if (fileIsValid(file)) {
+      const formData = new FormData()
+      formData.append('img', file, file.name)
 
-    setImage('...')
+      setImage('...')
 
-    const response = props.method === 'post' 
-      ? await api.post(props.action, formData)
-      : await api.put(props.action, formData)
+      const response = props.method === 'post' 
+        ? await api.post(props.action, formData)
+        : await api.put(props.action, formData)
 
-    setImage(<img src={response.data.url} alt='upload'/>)
+      setImage(<img src={response.data.url} alt='upload'/>)
+    }
   }
 
   return (
