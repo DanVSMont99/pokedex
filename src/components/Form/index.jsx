@@ -49,12 +49,12 @@ const UploadForm = props => {
     const fileSize = file.size
 
     if (fileType !== 'image/png') {
-      setImage('Somente imagens do tipo png são permitidas')
+      setImage('We only support PNG pictures.')
       return false
     }
 
     if (fileSize >= 100000) {
-      setImage('Somente imagens menores que 100KB são permitidas')
+      setImage('Please upload a picture smaller than 100 KB.')
       return false
     }
 
