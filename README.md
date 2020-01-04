@@ -1,5 +1,7 @@
 # Pokédex
 
+> A agenda de pokémons
+
 <img height="600" src="https://drive.google.com/uc?id=1NDseQMWLLwii4RqvcLPCn6ZXoJt8igbh" alt="Pokedex">
 
 ## Pré requisitos
