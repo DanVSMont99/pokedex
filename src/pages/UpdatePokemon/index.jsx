@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
+import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
 import api from '../../services/api'
-
 import { replaceNullToEmpty } from '../../utils'
+
 import { UploadForm } from '../../components/Form'
 import PokemonForm from '../../components/PokemonForm'
 import Modal from '../../components/Modal'
@@ -15,18 +16,17 @@ export default () => {
   const path = history.location.pathname
   const pokemonId = path.split('update/')[1]
 
-  const [form, setForm] = useState(null)
+  let pokemonData = useSelector(state =>
+    state.pokemons.filter(pokemon => pokemon._id === pokemonId)
+  )[0]
 
-  async function deletePokemon() {
+  const deletePokemon = async () => {
     await api.delete(`pokemons/${pokemonId}`)
     history.push('/')
   }
-
-  async function loadPokemon() {
-    const response = await api.get(`pokemons/${pokemonId}`)
-    const pokemonData = replaceNullToEmpty(response.data)
-    
-    setForm(
+  
+  return (
+    <div className='update-pokemon-page'>
       <Modal title='Update pokémon'>
         <UploadForm 
           method='put'
@@ -37,7 +37,7 @@ export default () => {
         <PokemonForm 
           method='put' 
           action={`pokemons/${pokemonId}`} 
-          fieldInitialValues={pokemonData} 
+          fieldInitialValues={replaceNullToEmpty(pokemonData)} 
         />
         <span className='delete-button'>
           <Button onClick={deletePokemon} width='100%' class='outline'>
@@ -45,16 +45,6 @@ export default () => {
           </Button>
         </span>
       </Modal>
-    )
-  }
-
-  useEffect(() => {
-    loadPokemon()
-  }, [])
-  
-  return (
-    <div className='update-pokemon-page'>
-      {form}
     </div>
   )
 }

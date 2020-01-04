@@ -1,5 +1,8 @@
-import React, { useState ,useEffect } from 'react'
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
+
+import { updateAllPokemons } from '../../store/actions/pokemonAction'
 
 import api from '../../services/api'
 
@@ -9,27 +12,24 @@ import { FixedButton } from '../../components/Button'
 import './styles.scss'
 
 export default () => {
-  const [pokemons, setPokemons] = useState(null)
+  const dispatch = useDispatch()
+  const pokemons = useSelector(state => state.pokemons)
 
-  function renderPokemons(pokemons) {
-    const pokemonsCards = pokemons.map((pokemon, i) =>
-      <Link key={i} to={`/update/${pokemon._id}`}> 
-        <Card text={pokemon.name} code={pokemon.number} src={pokemon.avatar_url} />
-      </Link>
-    )
-      
-    return pokemonsCards
-  }
-
-  async function loadPokemons() {
-    const response = await api.get('pokemons')
-    const pokemons = renderPokemons(response.data)
-    setPokemons(pokemons)
-  }
-
-  useEffect(() => {
+  const renderPokemons = pokemons => pokemons.map((pokemon, i) =>
+    <Link key={i} to={`/update/${pokemon._id}`}> 
+      <Card text={pokemon.name} code={pokemon.number} src={pokemon.avatar_url}/>
+    </Link>
+  )
+  
+  useEffect(() => {  
+    async function loadPokemons() {
+      const response = await api.get('pokemons')
+      const pokemons = response.data
+      dispatch(updateAllPokemons(pokemons))
+    }
+    
     loadPokemons()
-  }, [])
+  }, [dispatch])
 
   return (
     <div className='home'>
@@ -38,7 +38,7 @@ export default () => {
         <FixedButton />
       </Link>
       <main>
-        {pokemons}
+        {renderPokemons(pokemons)}
       </main>
     </div>
   )
