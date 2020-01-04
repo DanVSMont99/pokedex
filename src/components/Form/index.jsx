@@ -53,8 +53,8 @@ const UploadForm = props => {
       return false
     }
 
-    if (fileSize >= 100000) {
-      setImage('Please upload a picture smaller than 100 KB.')
+    if (fileSize >= 1000000) {
+      setImage('Please upload a picture smaller than 1 MB.')
       return false
     }
 
