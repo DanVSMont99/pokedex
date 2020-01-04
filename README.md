@@ -1,6 +1,6 @@
 # Pokédex
 
-<img width="728" src="https://drive.google.com/file/d/1NDseQMWLLwii4RqvcLPCn6ZXoJt8igbh/view" alt="Pokedex">
+<img width="728" src="https://drive.google.com/uc?id=1NDseQMWLLwii4RqvcLPCn6ZXoJt8igbh" alt="Pokedex">
 
 ## Pré requisitos
 
