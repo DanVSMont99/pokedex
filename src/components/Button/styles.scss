@@ -4,17 +4,17 @@
   position: relative;
   width: 100%;
   background-color: $primary;
+  border: 1px solid $primary;
+  border-radius: 5px;
   padding: .8rem;
   margin: .25rem;
   outline: none;
-  border: 1px solid $primary;
-  border-radius: 5px;
   cursor: pointer;
   z-index: 1; 
 
   p {
-    font-size: 1rem;
     color: white;
+    font-size: 1rem;
     font-weight: 600;
   }
 
@@ -53,13 +53,13 @@
 
 .fixed {
   position: fixed;
-  width: auto;
   bottom: .6rem;
   right: .6rem;
+  width: auto;
   padding: 0;
   border-radius: 100%;
-  box-shadow: 2.2px 3px 10px 2px $dark;
-
+  box-shadow: 3px 3px 15px 1px $dark;
+  
   &:before {
     border-radius: 100%;
   }
