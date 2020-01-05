@@ -1,8 +1,8 @@
 # Pokédex
 
-> A agenda de pokémons
+> A agenda para treinadores Pokémon
 
-<img height="600" src="https://drive.google.com/uc?id=1NDseQMWLLwii4RqvcLPCn6ZXoJt8igbh" alt="Pokedex">
+<img height="600" src="https://drive.google.com/uc?id=1NUa-eEKA2StZgsQowYIvCfJTej3sc-XB" alt="Pokedex">
 
 ## Pré requisitos
 
