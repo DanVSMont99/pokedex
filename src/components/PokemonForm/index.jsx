@@ -48,7 +48,6 @@ export default props => {
         : await api.put(props.action, body)
 
       history.push('/')
-        
     } catch (error) {
       alert('Error') 
     }
@@ -85,28 +84,28 @@ export default props => {
           <Field label='description' name='description' width='200%'/>
         </section>
         <section className='abiliity-session'>
-          <h2>ability</h2>
-          <section>
+          <header>ability</header>
+          <div>
             <Field name='abilities[0].name' placeholder='name' width='100%'/>
             <Field name='abilities[0].description' placeholder='description' width='150%'/>
             <Field name='abilities[0].force' placeholder='force' width='50%'/>
-          </section>
+          </div>
         </section>
         <section className='abiliity-session'>
-          <h2>ability</h2>
-          <section>
+          <header>ability</header>
+          <div>
             <Field name='abilities[1].name' placeholder='name' width='100%'/>
             <Field name='abilities[1].description' placeholder='description' width='150%'/>
             <Field name='abilities[1].force' placeholder='force' width='50%'/>
-          </section>
+          </div>
         </section>
         <section className='abiliity-session'>
-          <h2>ability</h2>
-          <section>
+          <header>ability</header>
+          <div>
             <Field name='abilities[2].name' placeholder='name' width='100%'/>
             <Field name='abilities[2].description' placeholder='description' width='150%'/>
             <Field name='abilities[2].force' placeholder='force' width='50%'/>
-          </section>
+          </div>
         </section>
         <section>
           <Button width='100%'>Save</Button>

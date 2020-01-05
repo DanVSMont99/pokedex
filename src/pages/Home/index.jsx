@@ -7,6 +7,7 @@ import { updateAllPokemons } from '../../store/actions/pokemonAction'
 import Header from '../../components/Header'
 import Card from '../../components/Card'
 import { FixedButton } from '../../components/Button'
+import { Add as AddIcon } from '../../components/Icon'
 import './styles.scss'
 
 export default () => {
@@ -33,7 +34,9 @@ export default () => {
     <div className='home'>
       <Header/>
       <Link to='/add'>
-        <FixedButton/>
+        <FixedButton>
+          <AddIcon size='6rem' color='white'/>
+        </FixedButton>
       </Link>
       <main>
         {renderPokemons(pokemons)}

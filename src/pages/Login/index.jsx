@@ -10,6 +10,8 @@ import Button from '../../components/Button'
 import './styles.scss'
 
 export default () => {
+  const history = useHistory()
+  
   const fieldInitialValues = {
     email: '',
     password: ''
@@ -19,8 +21,6 @@ export default () => {
     email: yup.string().email().required(),
     password: yup.string().min(8).required()
   })
-
-  const history = useHistory()
 
   const handleSignIn = (data) => {
     const { email, password } = data

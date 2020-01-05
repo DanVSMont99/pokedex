@@ -40,7 +40,7 @@ export default () => {
           fieldInitialValues={replaceNullToEmpty(pokemonData)} 
         />
         <span className='delete-button'>
-          <Button onClick={deletePokemon} width='100%' class='outline'>
+          <Button onClick={deletePokemon} class='outline' width='100%'>
             Delete this pokemon
           </Button>
         </span>

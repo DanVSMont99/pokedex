@@ -1,6 +1,5 @@
 import React from 'react'
 
-import { Add } from '../Icon'
 import './styles.scss'
 
 export default props => 
@@ -28,7 +27,7 @@ export const FixedButton = props => {
       style={buttonStyle} 
       className='button fixed'
     >
-      <Add size={props.size || '6rem'} color={props.color || 'white'}/>
+      {props.children}
     </button>
   )
 } 

@@ -31,13 +31,13 @@
 
   &:hover {
     &:before {
-      background-color: $shade;
+      background-color: $shadow;
     }
   }
 
   &:active {
     &:before {
-      background-color: $dark-shade;
+      background-color: $dark-shadow;
     }
   }
 }
