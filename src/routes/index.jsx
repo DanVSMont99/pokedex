@@ -12,9 +12,9 @@ import UpdatePokemon from '../pages/UpdatePokemon'
 export default () => 
   <BrowserRouter>
     <Switch name='http://localhost:3000'>
-      <PublicRoute path='/login' component={Login} exact />
-      <PrivateRoute path='/add' component={AddPokemon} exact />
-      <PrivateRoute path='/update/:id' component={UpdatePokemon} exact />
-      <PrivateRoute component={Home} />
+      <PublicRoute exact path='/login' component={Login}/>
+      <PrivateRoute exact path='/add' component={AddPokemon}/>
+      <PrivateRoute exact path='/update/:id' component={UpdatePokemon}/>
+      <PrivateRoute component={Home}/>
     </Switch>
   </BrowserRouter>

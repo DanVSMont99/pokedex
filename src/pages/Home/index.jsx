@@ -31,9 +31,9 @@ export default () => {
 
   return (
     <div className='home'>
-      <Header />
+      <Header/>
       <Link to='/add'>
-        <FixedButton />
+        <FixedButton/>
       </Link>
       <main>
         {renderPokemons(pokemons)}

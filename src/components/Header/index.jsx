@@ -6,5 +6,5 @@ import './styles.scss'
 export default () => 
   <header className='fixed-header'>
     <h1>Pokédex</h1>
-    <Menu />
+    <Menu/>
   </header>

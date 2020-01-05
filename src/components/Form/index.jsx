@@ -34,7 +34,7 @@ const Field = props => {
         type={props.type || 'text'} 
         placeholder={props.placeholder} 
       />
-      <ErrorMessage component='span' name={props.name} />
+      <ErrorMessage component='span' name={props.name}/>
     </div>
   )
 }

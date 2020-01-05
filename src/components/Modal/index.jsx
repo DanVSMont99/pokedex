@@ -10,7 +10,7 @@ export default props =>
     <div className='modal'>
       <div className='content'>
         <Link to={props.backTo || '/'}>
-          <ArrowLeft color='white' />
+          <ArrowLeft color='white'/>
         </Link>
         <header>
           <h1>{props.title}</h1>

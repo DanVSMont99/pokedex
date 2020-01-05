@@ -15,7 +15,7 @@ export default () => {
   return (
     <nav>
       <span onClick={handleLogout}>
-        <CloseIcon color='white' />
+        <CloseIcon color='white'/>
       </span>
     </nav>
   )
