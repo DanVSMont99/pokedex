@@ -1,7 +1,7 @@
 const replaceNullToEmpty = data => 
   JSON.parse(
     JSON.stringify(data)
-    .replace(/\:null/gi, "\:\"\"")
+    .replace(/:null/gi, ":\"\"")
   )
 
 export { replaceNullToEmpty }
