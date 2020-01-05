@@ -2,7 +2,6 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 
 import { logout } from '../../auth'
-
 import CloseIcon from '../../components/Icon'
 
 export default () => {

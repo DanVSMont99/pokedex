@@ -3,7 +3,6 @@ import { useHistory } from 'react-router-dom'
 import * as yup from 'yup'
 
 import api from '../../services/api'
-
 import { Form, Field } from '../Form'
 import Button from '../Button'
 import './styles.scss'
@@ -56,7 +55,7 @@ export default props => {
   }
 
   return (
-    <div className='add-pokemon'>
+    <div className='pokemon-form'>
       <Form 
         initialValues={props.fieldInitialValues} 
         validationSchema={fieldValidations}

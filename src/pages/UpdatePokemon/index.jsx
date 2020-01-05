@@ -13,8 +13,8 @@ import './styles.scss'
 
 export default () => {
   const history = useHistory()
-  const path = history.location.pathname
-  const pokemonId = path.split('update/')[1]
+  const pathname = history.location.pathname
+  const pokemonId = pathname.split('update/')[1]
 
   let pokemonData = useSelector(state =>
     state.pokemons.filter(pokemon => pokemon._id === pokemonId)

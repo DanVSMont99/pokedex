@@ -2,10 +2,8 @@ import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-import { updateAllPokemons } from '../../store/actions/pokemonAction'
-
 import api from '../../services/api'
-
+import { updateAllPokemons } from '../../store/actions/pokemonAction'
 import Header from '../../components/Header'
 import Card from '../../components/Card'
 import { FixedButton } from '../../components/Button'

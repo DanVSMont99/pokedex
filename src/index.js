@@ -5,7 +5,6 @@ import { PersistGate } from 'redux-persist/integration/react'
 
 import { store, persistor } from './store'
 import Routes from './routes'
-
 import './styles/reset.scss'
 import './styles/global.scss'
 

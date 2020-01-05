@@ -4,8 +4,8 @@ import { BrowserRouter, Switch } from 'react-router-dom'
 import PublicRoute from './PublicRoute' 
 import PrivateRoute from './PrivateRoute'
 
-import Login from '../pages/Login'
 import Home from '../pages/Home'
+import Login from '../pages/Login'
 import AddPokemon from '../pages/AddPokemon'
 import UpdatePokemon from '../pages/UpdatePokemon'
 
