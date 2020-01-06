@@ -9,7 +9,7 @@ export default props =>
     className={`button ${props.class}`}
     onClick={props.onClick}
   >
-    <p>{props.children}</p>
+    <small>{props.children}</small>
   </button>
     
 export const FixedButton = props => {

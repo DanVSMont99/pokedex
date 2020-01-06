@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom'
 
 import { logout } from '../../auth'
 import CloseIcon from '../../components/Icon'
+import './styles.scss'
 
 export default () => {
   const history = useHistory()
@@ -13,10 +14,12 @@ export default () => {
   }
 
   return (
-    <nav>
-      <span onClick={handleLogout}>
-        <CloseIcon color='white'/>
-      </span>
+    <nav className='menu'>
+      <ul>
+        <li onClick={handleLogout}>
+          <CloseIcon color='white'/>
+        </li>
+      </ul>
     </nav>
   )
 }

@@ -12,7 +12,7 @@
   cursor: pointer;
   z-index: 1; 
 
-  p {
+  small {
     color: white;
     font-size: 1rem;
     font-weight: 600;
@@ -46,7 +46,7 @@
   background: transparent;
   border-color: $primary;
 
-  p {
+  small {
     color: $primary;
   }
 }
